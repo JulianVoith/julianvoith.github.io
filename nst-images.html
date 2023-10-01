@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="nst-images.css" />
+    <script src="https://kit.fontawesome.com/8be7cd92f9.js" crossorigin="anonymous"></script>
+    <script src="./anime.min.js"></script>
+    <script src="./script.js" defer></script>
+    <title>Julian Voith &mdash; Unreal Engine 5 environment inspired by Mirriors Edge</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav-list">
+          <li>
+            <a href="./index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>In-Engine Screenshots of the Environment</h1>
+    </header>
+
+    <main>
+      <h2></h2>
+      <div class="img-grid" id="nst-img-grid-container"></div>
+
+      <h2>Refrence In-Game screenshots of the environment</h2>
+      <div class="img-grid" id="nst-src-img-container"></div>
+    </main>
+
+    <template id="nst-img-grid-container-item">
+      <img
+        class="img-grid-item"
+        src="./assets/UE5Images/capture_01.png"
+        alt="Environment in UE5"
+      />
+    </template>
+
+    <script>
+      const imgContainer = document.getElementById('nst-img-grid-container');
+      const itemTemplate = document.getElementById('nst-img-grid-container-item');
+      const generatedImageFileNames = [
+        'capture_01.png',
+        'capture_02.png',
+        'capture_03.png',
+        'capture_04.png',
+        'capture_05.png',
+        'capture_06.png',
+        'capture_07.png',
+        'capture_08.png',
+        'capture_09.png',
+        'capture_10.png',
+        'capture_11.png',
+        'capture_12.png',
+        'capture_13.png',
+        'capture_14.png',
+        'capture_15.png',
+      ];
+      generatedImageFileNames.forEach((fileName) => {
+        const clone = itemTemplate.content.firstElementChild.cloneNode(true);
+        clone.src = './assets/UE5Images/' + fileName;
+        imgContainer.appendChild(clone);
+      });
+
+      const srcImgContainer = document.getElementById('nst-src-img-container');
+      const srcImageFileNames = [
+        'Screenshot_01.webp',
+        'Screenshot_02.webp',
+        'Screenshot_03.webp',
+        'Screenshot_04.webp',
+        'Screenshot_05.webp',
+        'Screenshot_06.webp',
+        'Screenshot_07.webp',
+        'Screenshot_08.webp',
+      ];
+      srcImageFileNames.forEach((fileName) => {
+        const clone = itemTemplate.content.firstElementChild.cloneNode(true);
+        clone.src = './assets/UE5Images/ReferenceImages/' + fileName;
+        srcImgContainer.appendChild(clone);
+      });
+
+      anime({
+        targets: '.img-grid-item',
+        delay: anime.stagger(30, { start: 500 }),
+        opacity: [0, 1],
+        duration: 700,
+        easing: 'linear',
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="nst-images.css" />
+    <script src="https://kit.fontawesome.com/8be7cd92f9.js" crossorigin="anonymous"></script>
+    <script src="./anime.min.js"></script>
+    <script src="./script.js" defer></script>
+    <title>Julian Voith &mdash; Project screencasts Next.js social media platform</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="nav-list">
+          <li>
+            <a href="./index.html"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+          </li>
+        </ul>
+      </nav>
+      <h1>Project screencast</h1>
+    </header>
+
+    <main>
+      <h2></h2>
+      <div class="img-grid" id="nst-img-grid-container"></div>
+
+      <h2>Individual project screencast</h2>
+      <div class="img-grid" id="nst-src-img-container"></div>
+    </main>
+
+    <template id="nst-img-grid-container-item">
+      <video controls width="1080">
+        <source
+          class="img-grid-item"
+          src="./assets/AWPVideos/TDDD27_LiU_GamesGram_ProjectDemo.mov"
+          alt="Project demonstration" />
+      </video>
+    </template>
+
+    <script>
+      const vidContainer = document.getElementById('nst-img-grid-container');
+      const itemTemplate = document.getElementById('nst-img-grid-container-item');
+      const projectDemo = [
+        'TDDD27_LiU_GamesGram_ProjectDemo.mov',
+      ];
+
+      projectDemo.forEach((fileName) => {
+        const clone = itemTemplate.content.firstElementChild.cloneNode(true);
+        clone.src = './assets/AWPVideos/' + fileName;
+        vidContainer.appendChild(clone);
+      });
+
+      const personalVidContainer = document.getElementById('nst-src-img-container');
+      const srcVidFileNames = [
+        'TDDD27_Liu_GamesGram_Individual_Screencast_julvo429.mov',
+      ];
+      srcVidFileNames.forEach((fileName) => {
+        const clone = itemTemplate.content.firstElementChild.cloneNode(true);
+        clone.src = './assets/AWPVideos/' + fileName;
+        personalVidContainer.appendChild(clone);
+      });
+
+      anime({
+        targets: '.img-grid-item',
+        delay: anime.stagger(30, { start: 500 }),
+        opacity: [0, 1],
+        duration: 700,
+        easing: 'linear',
+      });
+    </script>
+  </body>
+</html>
