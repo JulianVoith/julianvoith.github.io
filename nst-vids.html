@@ -38,12 +38,7 @@
     </main>
 
     <template id="nst-img-grid-container-item">
-      <video controls width="1080">
-        <source
-          class="img-grid-item"
-          src="./assets/AWPVideos/TDDD27_LiU_GamesGram_ProjectDemo.mov"
-          alt="Project demonstration" />
-      </video>
+      <iframe src="https://drive.google.com/file/d/1JsYRbIugonQ-OLzWpwhERiEXN1C2tbk-/preview" width="960" height="540" allow="autoplay"></iframe>
     </template>
 
     <script>
@@ -55,7 +50,7 @@
 
       projectDemo.forEach((fileName) => {
         const clone = itemTemplate.content.firstElementChild.cloneNode(true);
-        clone.src = './assets/AWPVideos/' + fileName;
+       clone.src = 'https://drive.google.com/file/d/1JsYRbIugonQ-OLzWpwhERiEXN1C2tbk-/preview'
         vidContainer.appendChild(clone);
       });
 
@@ -65,7 +60,7 @@
       ];
       srcVidFileNames.forEach((fileName) => {
         const clone = itemTemplate.content.firstElementChild.cloneNode(true);
-        clone.src = './assets/AWPVideos/' + fileName;
+        clone.src = 'https://drive.google.com/file/d/1yMdr0_kSPc-ExexMM1CmMXm9vb5sdFei/preview'
         personalVidContainer.appendChild(clone);
       });
 
